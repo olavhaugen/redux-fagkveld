@@ -2,7 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.css';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducers from './reducers';
+
+const store = createStore(reducers);
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('new-years-resolutions-app'));

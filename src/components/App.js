@@ -1,10 +1,10 @@
 import React from 'react';
-import Todos from './Todos';
+import TodosContainer from './TodosContainer';
 
 const App = () => (
   <div className="container">
     <h1>New Year's Resolutions</h1>
-    <Todos />
+    <TodosContainer />
   </div>
 );
 
