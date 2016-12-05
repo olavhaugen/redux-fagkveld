@@ -12,7 +12,7 @@ class TodosContainer extends Component {
 
   onInputKeyPress(event) {
     if (event.key === 'Enter') {
-      this.props.dispatch(addTodo());
+      this.props.dispatch(addTodo(this.props.text));
     }
   }
 
@@ -34,7 +34,7 @@ class TodosContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     todos: state.todos,
-    text: state.text,
+    text: state.input.text,
   };
 }
 

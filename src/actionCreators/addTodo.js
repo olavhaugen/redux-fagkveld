@@ -1,3 +1,4 @@
-export default () => ({
-  type: 'ADD_TODO'
+export default (text) => ({
+  type: 'ADD_TODO',
+  text,
 });
