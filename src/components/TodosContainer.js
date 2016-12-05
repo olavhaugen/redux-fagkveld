@@ -1,28 +1,23 @@
 import React, { Component } from 'react';
 import Todos from './Todos';
 import { connect } from 'react-redux';
+import addTodo from '../actionCreators/addTodo';
+import textChanged from '../actionCreators/textChanged';
+import toggleComplete from '../actionCreators/toggleComplete';
 
 class TodosContainer extends Component {
   onInputChange(text) {
-    this.props.dispatch({
-      type: 'TEXT_CHANGED',
-      text,
-    });
+    this.props.dispatch(textChanged(text));
   }
 
   onInputKeyPress(event) {
     if (event.key === 'Enter') {
-      this.props.dispatch({
-        type: 'ADD_TODO'
-      });
+      this.props.dispatch(addTodo());
     }
   }
 
   onTodoClick(id) {
-    this.props.dispatch({
-      type: 'TOGGLE_COMPLETE',
-      id
-    });
+    this.props.dispatch(toggleComplete(id));
   }
 
   render() {
