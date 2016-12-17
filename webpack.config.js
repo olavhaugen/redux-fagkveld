@@ -3,7 +3,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
 module.exports = {
-    entry: ['babel-polyfill', './src/index.js'],
+    entry: ['react-hot-loader/patch', 'babel-polyfill', './src/index.js'],
     devtool: 'source-map',
     output: {
         path: './dist',
