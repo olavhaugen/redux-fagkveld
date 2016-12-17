@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import reducers from '../reducers';
 import crashReporter from '../middleware/crashReporter';
 
@@ -7,11 +7,13 @@ export default () => {
   if (window.localStorage.preloadedState) {
     preloadedState = JSON.parse(window.localStorage.preloadedState);
   }
-
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
     reducers,
     preloadedState,
-    applyMiddleware(crashReporter)
+    composeEnhancers(
+      applyMiddleware(crashReporter)
+    )
   );
 
   window.debug = {
