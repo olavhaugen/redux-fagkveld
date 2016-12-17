@@ -2,15 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.css';
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import reducers from './reducers';
-import crashReporter from './middleware/crashReporter';
+import createStore from './store/createStore';
 
-const store = createStore(
-  reducers,
-  applyMiddleware(crashReporter)
-);
+const store = createStore();
 
 ReactDOM.render(
   <Provider store={store}>
